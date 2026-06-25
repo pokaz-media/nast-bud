@@ -314,65 +314,6 @@ button{ font: inherit; cursor:pointer; }
 /* =========================================================
    PANORAMA BANNER
    ========================================================= */
-.panorama{
-  position: relative;
-  background: var(--paper);
-}
-.panorama-img{
-  position: relative;
-  height: clamp(280px, 36vw, 520px);
-  overflow: hidden;
-  background: var(--ink);
-}
-.panorama-img img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 60%;
-  filter: contrast(1.04) saturate(.9);
-  transition: transform 1.4s cubic-bezier(.2,.7,.2,1);
-}
-.panorama:hover .panorama-img img{ transform: scale(1.04); }
-
-.panorama-caption{
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: baseline;
-  gap: clamp(14px, 2vw, 32px);
-  padding: 16px var(--pad-x);
-  border-bottom: 1px solid var(--line-soft);
-  font-family: var(--f-mono);
-  font-size: 12px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--ink);
-}
-.pc-tag{
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 600;
-  color: var(--ink);
-}
-.pc-tag::before{
-  content:"";
-  width: 8px; height: 8px;
-  background: var(--red);
-  display: inline-block;
-}
-.pc-loc{
-  font-family: var(--f-sans);
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0;
-  text-transform: none;
-  color: var(--ink-2);
-}
-.pc-meta{
-  color: var(--mute);
-  font-size: 11px;
-}
-
 /* =========================================================
    FILM
    ========================================================= */
@@ -1022,6 +963,114 @@ button{ font: inherit; cursor:pointer; }
   opacity: .82;
 }
 
+/* Lokalizacje — banner ze zdjęciami (na miejscu dawnej panoramy) */
+.lok-banner{
+  padding-top: clamp(32px, 4vw, 56px);
+}
+
+/* Lokalizacje — karty kontaktowe z mapami */
+.lok-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.lok-card{
+  background: var(--paper-2);
+  border: 1px solid var(--line-soft);
+  padding: 28px;
+  display:flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: transform .3s cubic-bezier(.2,.7,.2,1), background .3s ease, border-color .3s ease;
+}
+.lok-card:hover{
+  transform: translateY(-4px);
+  background: #fff;
+  border-color: var(--ink);
+}
+.lok-head{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  color: var(--mute);
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.lok-stat{
+  display:inline-flex; gap: 8px; align-items:center;
+  color: var(--ink);
+}
+.led{
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #1FB35A;
+  box-shadow: 0 0 0 3px rgba(31,179,90,.18);
+  animation: pulse 2.4s ease infinite;
+}
+@keyframes pulse{
+  50%{ box-shadow: 0 0 0 6px rgba(31,179,90,0);}
+}
+.lok-card h3{
+  font-family: var(--f-display);
+  font-size: clamp(28px, 2.4vw, 38px);
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.15;
+}
+.lok-sub{
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: var(--red);
+  margin: 6px 0 0;
+  text-transform: uppercase;
+}
+.lok-card address{
+  font-style: normal;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.lok-kv{
+  margin: 0;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--line-soft);
+  display:grid;
+  gap: 10px;
+}
+.lok-kv > div{
+  display:grid;
+  grid-template-columns: 60px 1fr;
+  gap: 14px;
+  align-items: baseline;
+}
+.lok-kv dt{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.lok-kv dd{
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink);
+  font-weight: 500;
+}
+.lok-kv a:hover{ color: var(--red); }
+.lok-map{
+  margin-top: auto;
+  background: var(--ink);
+  color: var(--paper);
+  aspect-ratio: 5 / 3;
+  position: relative;
+  overflow: hidden;
+}
+.lok-map svg{ width: 100%; height: 100%; }
+.lok-map iframe{ width: 100%; height: 100%; border: 0; display: block; }
+
 /* =========================================================
    JAKOSC
    ========================================================= */
@@ -1503,6 +1552,7 @@ button{ font: inherit; cursor:pointer; }
   .firma-grid,
   .jak-grid{ grid-template-columns: 1fr; }
   .oferta-grid{ grid-template-columns: 1fr; }
+  .lok-grid{ grid-template-columns: 1fr; }
   .lok-band{ height: clamp(180px, 40vw, 300px); }
   .kontakt-grid{ grid-template-columns: 1fr; }
   .ft-top{ grid-template-columns: 1fr; }
