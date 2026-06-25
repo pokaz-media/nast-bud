@@ -232,7 +232,7 @@ button{ font: inherit; cursor:pointer; }
   border-top: 1px solid var(--ink);
   border-bottom: 1px solid var(--ink);
   display:grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
 .strip-cell{
   padding: 24px 20px 22px;
@@ -952,107 +952,75 @@ button{ font: inherit; cursor:pointer; }
 .lok{
   padding: 0 var(--pad-x) clamp(64px, 8vw, 112px);
 }
-.lok-grid{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.lok-card{
-  background: var(--paper-2);
-  border: 1px solid var(--line-soft);
-  padding: 28px;
-  display:flex;
+.lok-bands{
+  display: flex;
   flex-direction: column;
-  gap: 18px;
-  transition: transform .3s cubic-bezier(.2,.7,.2,1), background .3s ease, border-color .3s ease;
+  gap: 14px;
 }
-.lok-card:hover{
-  transform: translateY(-4px);
-  background: #fff;
-  border-color: var(--ink);
+.lok-band{
+  position: relative;
+  display: block;
+  height: clamp(220px, 30vh, 380px);
+  overflow: hidden;
+  background: var(--ink);
+  border: 1px solid var(--line-soft);
 }
-.lok-head{
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
+.lok-band img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .6s cubic-bezier(.2,.7,.2,1);
+}
+.lok-band:hover img{ transform: scale(1.04); }
+.lok-band::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(95deg, rgba(15,15,15,.74) 0%, rgba(15,15,15,.38) 34%, rgba(15,15,15,0) 62%);
+}
+.lok-band-cap{
+  position: absolute;
+  left: clamp(20px, 3vw, 44px);
+  bottom: clamp(18px, 2.6vw, 34px);
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  color: #fff;
+}
+.lb-no{
+  font-family: var(--f-mono);
+  font-size: 13px;
+  letter-spacing: .12em;
+  padding-top: 7px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  opacity: .92;
+}
+.lb-no::before{
+  content: "";
+  width: 9px; height: 9px;
+  background: var(--red);
+  display: inline-block;
+}
+.lb-txt{ display: flex; flex-direction: column; gap: 4px; }
+.lb-name{
+  font-family: var(--f-display);
+  font-size: clamp(28px, 4vw, 52px);
+  line-height: 1;
+  letter-spacing: -0.015em;
+}
+.lb-sub{
   font-family: var(--f-mono);
   font-size: 11px;
   letter-spacing: .18em;
-  color: var(--mute);
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--line-soft);
-}
-.lok-stat{
-  display:inline-flex; gap: 8px; align-items:center;
-  color: var(--ink);
-}
-.led{
-  width: 8px; height: 8px; border-radius: 50%;
-  background: #1FB35A;
-  box-shadow: 0 0 0 3px rgba(31,179,90,.18);
-  animation: pulse 2.4s ease infinite;
-}
-@keyframes pulse{
-  50%{ box-shadow: 0 0 0 6px rgba(31,179,90,0);}
-}
-.lok-card h3{
-  font-family: var(--f-display);
-  font-size: clamp(28px, 2.4vw, 38px);
-  letter-spacing: -0.01em;
-  margin: 0;
-  line-height: 1.15;
-}
-.lok-sub{
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: .04em;
-  color: var(--red);
-  margin: 6px 0 0;
   text-transform: uppercase;
+  opacity: .82;
 }
-.lok-card address{
-  font-style: normal;
-  font-size: 15px;
-  line-height: 1.55;
-  color: var(--ink-2);
-}
-.lok-kv{
-  margin: 0;
-  padding: 16px 0 0;
-  border-top: 1px solid var(--line-soft);
-  display:grid;
-  gap: 10px;
-}
-.lok-kv > div{
-  display:grid;
-  grid-template-columns: 60px 1fr;
-  gap: 14px;
-  align-items: baseline;
-}
-.lok-kv dt{
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  color: var(--mute);
-}
-.lok-kv dd{
-  margin: 0;
-  font-size: 13px;
-  color: var(--ink);
-  font-weight: 500;
-}
-.lok-kv a:hover{ color: var(--red); }
-.lok-map{
-  margin-top: auto;
-  background: var(--ink);
-  color: var(--paper);
-  aspect-ratio: 5 / 3;
-  position: relative;
-  overflow: hidden;
-}
-.lok-map svg{ width: 100%; height: 100%; }
-.lok-map iframe{ width: 100%; height: 100%; border: 0; display: block; }
 
 /* =========================================================
    JAKOSC
@@ -1529,12 +1497,13 @@ button{ font: inherit; cursor:pointer; }
   .hero-strip{ grid-template-columns: 1fr 1fr; }
   .strip-cell:nth-child(3){ border-left: 0; padding-left:0; border-top: 1px solid var(--line-soft);}
   .strip-cell:nth-child(4){ border-top: 1px solid var(--line-soft); }
+  .strip-cell:nth-child(5){ border-left: 0; padding-left:0; border-top: 1px solid var(--line-soft);}
   .sec-head{ grid-template-columns: 1fr; gap: 12px; }
   .film-head{ grid-template-columns: 1fr; gap: 12px; }
   .firma-grid,
   .jak-grid{ grid-template-columns: 1fr; }
   .oferta-grid{ grid-template-columns: 1fr; }
-  .lok-grid{ grid-template-columns: 1fr; }
+  .lok-band{ height: clamp(180px, 40vw, 300px); }
   .kontakt-grid{ grid-template-columns: 1fr; }
   .ft-top{ grid-template-columns: 1fr; }
   .ft-cols{ grid-template-columns: 1fr 1fr; }
