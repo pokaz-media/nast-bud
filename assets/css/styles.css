@@ -61,8 +61,6 @@ button{ font: inherit; cursor:pointer; }
      cream nav lets that plate dissolve into the page */
   mix-blend-mode: multiply;
 }
-.logo-nast{ color: var(--ink); }
-.logo-bud { color: var(--red); }
 
 /* =========================================================
    NAV
@@ -499,155 +497,8 @@ button{ font: inherit; cursor:pointer; }
 .sec-head.dark .sec-h{ color: var(--paper); }
 .sec-head.dark .sec-num{ border-top-color: var(--paper); }
 
-/* =========================================================
-   FIRMA
-   ========================================================= */
-.firma{
-  padding: 0 var(--pad-x) clamp(64px, 8vw, 112px);
-}
-.firma-grid{
-  display:grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: clamp(32px, 5vw, 72px);
-  align-items: start;
-}
-.firma-body p.lede{
-  font-size: clamp(20px, 1.6vw, 26px);
-  line-height: 1.4;
-  font-weight: 500;
-  color: var(--ink);
-  margin: 0 0 20px;
-  letter-spacing: 0;
-  text-wrap: pretty;
-}
-.firma-body p{
-  font-size: 16px;
-  line-height: 1.65;
-  color: var(--ink-2);
-  margin: 0 0 16px;
-  max-width: 60ch;
-}
-.firma-list{
-  list-style: none;
-  margin: 24px 0 0;
-  padding: 24px 0 0;
-  border-top: 1px solid var(--line-soft);
-  display:grid;
-  gap: 12px;
-}
-.firma-list li{
-  display:flex;
-  align-items:center;
-  gap: 14px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--ink);
-}
-.firma-list .bullet{
-  width: 12px; height: 12px;
-  background: var(--red);
-  flex: 0 0 12px;
-  transform: rotate(45deg);
-}
 
-.firma-card{
-  background: var(--ink);
-  color: var(--paper);
-  padding: 32px;
-  position: relative;
-  isolation: isolate;
-}
-.card-tag{
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: .2em;
-  color: var(--red);
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(244,242,238,.15);
-}
-.kv{
-  margin: 0;
-  padding: 0;
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-}
-.kv > div{
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(244,242,238,.1);
-}
-.kv > div:nth-child(odd){ padding-right: 16px; }
-.kv > div:nth-child(even){ padding-left: 16px; border-left: 1px solid rgba(244,242,238,.1); }
-.kv > div:nth-last-child(-n+2){ border-bottom: 0; }
-.kv dt{
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  color: rgba(244,242,238,.55);
-  margin-bottom: 6px;
-}
-.kv dd{
-  margin: 0;
-  font-family: var(--f-display);
-  font-size: 18px;
-  letter-spacing: -0.005em;
-  line-height: 1.22;
-}
-
-.card-stamp{
-  position: absolute;
-  right: -28px;
-  bottom: -28px;
-  width: 132px; height: 132px;
-  border-radius: 50%;
-  background: var(--red);
-  color: #fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: .14em;
-  transform: rotate(-12deg);
-}
-.stamp-ring{
-  position:absolute; inset:6px;
-  border-radius:50%;
-  border: 1px dashed rgba(255,255,255,.4);
-  animation: ringspin 24s linear infinite;
-  overflow: hidden;
-}
-.stamp-ring span{
-  position:absolute;
-  inset:0;
-  font-size: 8px;
-  letter-spacing:.18em;
-  text-align:center;
-  /* fallback simple text */
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-  padding-top:6px;
-  opacity:0;
-}
 @keyframes ringspin{ to{ transform: rotate(360deg);} }
-.stamp-core{
-  font-family: var(--f-display);
-  font-size: 28px;
-  line-height: 1;
-  text-align:center;
-  letter-spacing: -0.005em;
-}
-.stamp-core span{
-  display:block;
-  font-family: var(--f-mono);
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: .2em;
-  margin-top: 4px;
-  color: rgba(255,255,255,.85);
-}
 
 /* =========================================================
    OFERTA
@@ -1380,16 +1231,12 @@ button{ font: inherit; cursor:pointer; }
   border-right: 1px solid rgba(244,242,238,.15);
   border-bottom: 1px solid rgba(244,242,238,.15);
 }
-.k-card, .k-form{
+.k-card{
   background: var(--ink);
   padding: 36px 32px;
   display:flex;
   flex-direction: column;
   gap: 14px;
-}
-.k-form{
-  grid-column: 1 ⁄ -1;
-  border-top: 1px solid rgba(244,242,238,.1);
 }
 .k-eyebrow{
   font-family: var(--f-mono);
@@ -1422,59 +1269,6 @@ button{ font: inherit; cursor:pointer; }
   color: rgba(244,242,238,.65);
 }
 
-.k-form form{
-  display:grid;
-  gap: 14px;
-  margin-top: 8px;
-}
-.f-row{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-.k-form label{
-  display:flex;
-  flex-direction:column;
-  gap: 6px;
-}
-.k-form label > span{
-  font-family: var(--f-mono);
-  font-size: 10.5px;
-  letter-spacing: .16em;
-  color: rgba(244,242,238,.55);
-  text-transform: uppercase;
-}
-.k-form input,
-.k-form select,
-.k-form textarea{
-  width: 100%;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid rgba(244,242,238,.25);
-  padding: 10px 0;
-  color: var(--paper);
-  font-family: var(--f-sans);
-  font-size: 15px;
-  outline: none;
-  transition: border-color .2s ease;
-}
-.k-form input::placeholder,
-.k-form textarea::placeholder{ color: rgba(244,242,238,.35); }
-.k-form input:focus,
-.k-form select:focus,
-.k-form textarea:focus{ border-color: var(--red); }
-.k-form select{ -webkit-appearance:none; appearance:none; }
-.k-form select option{ background: var(--ink); color: var(--paper); }
-.k-form .btn{ justify-self: start; margin-top: 6px; }
-.k-form .btn-primary{ background: var(--red); }
-.k-form .btn-primary:hover{ background: #fff; color: var(--ink); }
-.fbk{
-  margin: 8px 0 0;
-  padding: 14px 16px;
-  border: 1px solid var(--red);
-  color: var(--paper);
-  font-size: 14px;
-}
 
 /* =========================================================
    FOOTER
@@ -1492,8 +1286,6 @@ button{ font: inherit; cursor:pointer; }
   padding-bottom: 48px;
   border-bottom: 1px solid rgba(244,242,238,.1);
 }
-.ft-brand .logo-nast{ color: var(--paper); }
-.ft-brand .logo-bud { color: var(--red); }
 .ft-brand{ font-family: var(--f-display); font-size: 40px; line-height: 1.15; }
 .ft-logo{
   /* Logo PNG sits on white plate with black + red marks.
@@ -1561,8 +1353,7 @@ button{ font: inherit; cursor:pointer; }
   .strip-cell:nth-child(5){ border-left: 0; padding-left:0; border-top: 1px solid var(--line-soft);}
   .sec-head{ grid-template-columns: 1fr; gap: 12px; }
   .film-head{ grid-template-columns: 1fr; gap: 12px; }
-  .firma-grid,
-  .jak-grid{ grid-template-columns: 1fr; }
+.jak-grid{ grid-template-columns: 1fr; }
   .sponsor{ grid-template-columns: 1fr; }
   .sponsor-fig{ aspect-ratio: 4 / 5; max-width: 420px; }
   .oferta-grid{ grid-template-columns: 1fr; }
@@ -1572,7 +1363,6 @@ button{ font: inherit; cursor:pointer; }
   .ft-top{ grid-template-columns: 1fr; }
   .ft-cols{ grid-template-columns: 1fr 1fr; }
   .ft-bot{ flex-direction: column; align-items: flex-start; gap: 8px; }
-  .f-row{ grid-template-columns: 1fr; }
 
   /* realizacje — collapse mosaic to 2-col */
   .realiz-grid{

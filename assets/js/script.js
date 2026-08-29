@@ -10,7 +10,7 @@
   }, { rootMargin: '-10% 0px -5% 0px' });
 
   const targets = document.querySelectorAll(
-    '.firma-body, .firma-card, .prod, .lok-card, .jak-body, .partners, .sponsor-body, .sponsor-fig, .quote blockquote, .k-card, .k-form, .ft-top'
+    '.prod, .lok-card, .jak-body, .partners, .sponsor-body, .sponsor-fig, .quote blockquote, .k-card, .ft-top'
   );
   targets.forEach(el => { el.classList.add('reveal'); io.observe(el); });
 
