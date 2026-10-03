@@ -265,21 +265,6 @@ button{ font: inherit; cursor:pointer; }
   border-top: 1px solid var(--line-soft);
 }
 
-.hero-ghost{
-  position: absolute;
-  right: -2vw;
-  top: 8vw;
-  font-family: var(--f-mono);
-  font-size: clamp(80px, 16vw, 220px);
-  font-weight: 500;
-  color: var(--ink);
-  opacity: .035;
-  letter-spacing: -0.02em;
-  pointer-events:none;
-  user-select:none;
-  z-index: -1;
-}
-
 /* =========================================================
    MARQUEE
    ========================================================= */
@@ -1106,6 +1091,7 @@ button{ font: inherit; cursor:pointer; }
 @media (max-width: 860px){
   .certs-head{ flex-wrap: wrap; }
   .certs-line{ display: none; }
+  .certs-title{ white-space: normal; }
   .certs-grid{ grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 540px){
@@ -1255,7 +1241,38 @@ button{ font: inherit; cursor:pointer; }
   transition: background .25s ease;
 }
 .k-card:hover{ background: #1A1A1A; }
-.k-card:hover .k-big{ color: var(--red); }
+a.k-card:hover .k-big,
+a.k-big:hover{ color: var(--red); }
+.k-big{ transition: color .2s ease; }
+.k-alt{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.k-alt a{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(244,242,238,.1);
+}
+.k-alt-where{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(244,242,238,.65);
+}
+.k-alt-num{
+  font-family: var(--f-display);
+  font-size: clamp(20px, 2vw, 28px);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  transition: color .2s ease;
+}
+.k-alt a:hover .k-alt-num{ color: var(--red); }
 .k-foot{
   margin-top: auto;
   padding-top: 16px;
@@ -1415,3 +1432,90 @@ button{ font: inherit; cursor:pointer; }
 /* reveal-on-scroll */
 .reveal{ opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
 .reveal.in{ opacity: 1; transform: translateY(0); }
+
+/* =========================================================
+   COOKIES: baner zgody (assets/js/consent.js)
+   ========================================================= */
+.cc{
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 100;
+  display: flex;
+  justify-content: flex-start;
+  pointer-events: none;
+}
+.cc[hidden], .cc [hidden]{ display: none !important; }
+.cc-box{
+  pointer-events: auto;
+  width: min(100%, 520px);
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid rgba(244,242,238,.18);
+  box-shadow: 0 18px 50px rgba(0,0,0,.28);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.cc-eyebrow{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.cc-text{
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(244,242,238,.8);
+}
+.cc-prefs{
+  display: grid;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(244,242,238,.1);
+}
+.cc-opt{
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 12px;
+  align-items: start;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(244,242,238,.7);
+  cursor: pointer;
+}
+.cc-opt b{ display: block; color: var(--paper); font-weight: 600; }
+.cc-opt input{ width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--red); }
+.cc-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.cc-btn{
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  background: transparent;
+  color: var(--paper);
+  border: 1px solid rgba(244,242,238,.35);
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+.cc-btn:hover{ border-color: var(--paper); }
+.cc-accept{ background: var(--red); border-color: var(--red); color: #fff; }
+.cc-accept:hover{ background: var(--red-deep); border-color: var(--red-deep); }
+.cc-link{
+  border-color: transparent;
+  padding-left: 4px;
+  padding-right: 4px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: rgba(244,242,238,.75);
+}
+.cc-link:hover{ border-color: transparent; color: var(--paper); }
+.cc-btn:focus-visible, .cc-opt input:focus-visible{ outline: 2px solid var(--red); outline-offset: 2px; }
